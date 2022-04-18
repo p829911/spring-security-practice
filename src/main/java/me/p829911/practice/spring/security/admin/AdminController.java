@@ -3,6 +3,7 @@ package me.p829911.practice.spring.security.admin;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import me.p829911.practice.spring.security.note.Note;
+import me.p829911.practice.spring.security.note.NoteService;
 import me.p829911.practice.spring.security.user.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ public class AdminController {
     public String getNoteForAdmin(Authentication authentication, Model model) {
         User user = (User) authentication.getPrincipal();
         List<Note> notes = noteService.findByUser(user);
-        model.addAllAttributes("notes", notes);
+        model.addAttribute("notes", notes);
         return "admin/index";
     }
 }

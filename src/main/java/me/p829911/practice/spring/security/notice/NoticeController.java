@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/notice")
 public class NoticeController {
 
-    private NoticeService noticeService;
+    private final NoticeService noticeService;
 
     @GetMapping
     public String findAll(Model model) {
         List<Notice> notices = noticeService.findAll();
-        model.addAttribute("notice", notices);
+        model.addAttribute("notices", notices);
         return "notice/index";
     }
 
