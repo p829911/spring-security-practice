@@ -2,13 +2,17 @@
 logging:
   level:
     root: INFO
-    sql: ERROR
+    sql: debug
 # Overloaded POST 사용
 spring:
   mvc:
     hiddenmethod:
       filter:
         enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
 # session
 server:
   servlet:
